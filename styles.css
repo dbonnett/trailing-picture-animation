@@ -1,0 +1,16 @@
+#parent {
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+
+img {
+    display: block;
+    position: absolute;
+}
+
+.front {
+    z-index: -1;
+}
