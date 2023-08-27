@@ -10,11 +10,12 @@ img {
     display: block;
     position: absolute;
 }
-
-.front {
-    z-index: -1;
+#main {
+    z-index: 5;
 }
-
+#first {
+    z-index: -1
+}
 #second {
-    animation: animateSecond 500ms ease 500ms;
+    z-index: -2;
 }

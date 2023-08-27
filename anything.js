@@ -1,9 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
     const first = document.getElementById("first");
     const second = document.getElementById("second");
+    const main = document.getElementById("main");
     let firstPosition = 0;
     let position = 0;
     let secondPosition = -50;
+    
+    let zMain = 5;
+    let zSecond = -2;
+    let zFirst = -1;
 
     let height = 291;
     let width = 291;
@@ -47,9 +52,12 @@ document.addEventListener("DOMContentLoaded", function() {
             firstPosition = 0; 
             firstHeight = 291;
             firstWidth = 291;
+            zFirst += 4;
+            zMain += 1;
+            first.style.zIndex = zFirst;
+            main.style.zIndex = zMain;
             requestAnimationFrame(animateFirst);
         }
-        //setTimeout(animateFirst, 2000);
     }
     
     function animateSecond() {
@@ -72,39 +80,40 @@ document.addEventListener("DOMContentLoaded", function() {
             secondPosition = 0; 
             secondHeight = 291;
             secondWidth = 291;
+            zSecond += 4;
+            zMain += 1;
+            second.style.zIndex = zSecond;
+            main.style.zIndex = zMain;
             requestAnimationFrame(animateSecond);
         }
 
     }
 
-    function animate(elem, num) {
-        position -= animationSpeed;
-        first.style.left = position + "px";
+    // function animate(elem, num) {
+    //     position -= animationSpeed;
+    //     first.style.left = position + "px";
 
-        let h = height;
-        let w = width
+    //     let h = height;
+    //     let w = width
 
-        h -= animationSpeed;
-        w -= animationSpeed;
-        second.style.width = w + position + "px";
-        second.style.height = h + position + "px";
-        second.style.top = (291 -(h + position)) / 2;
-        second.style.opacity = 1 - (-position / 100)
+    //     h -= animationSpeed;
+    //     w -= animationSpeed;
+    //     second.style.width = w + position + "px";
+    //     second.style.height = h + position + "px";
+    //     second.style.top = (291 -(h + position)) / 2;
+    //     second.style.opacity = 1 - (-position / 100)
 
-        if (position > targetPosition) {
-            requestAnimationFrame(animate);
-        } else {
-            position = 0; 
-            h = height;
-            w = width;
-            requestAnimationFrame(animate);
-        }
-        //setTimeout(animateSecond, 500)
-    } 
+    //     if (position > targetPosition) {
+    //         requestAnimationFrame(animate);
+    //     } else {
+    //         position = 0; 
+    //         h = height;
+    //         w = width;
+    //         requestAnimationFrame(animate);
+    //     }
+    // } 
 
-    //animate(first, 1);
     animateFirst();
-    //setTimeout(animateSecond());
     animateSecond();
 
 });
