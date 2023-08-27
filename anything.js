@@ -1,20 +1,25 @@
 document.addEventListener("DOMContentLoaded", function() {
     const first = document.getElementById("first");
     const second = document.getElementById("second");
+    const third = document.getElementById("third");
+    const fourth = document.getElementById("fourth");
     const main = document.getElementById("main");
     let firstPosition = 0;
-    let position = 0;
-    let secondPosition = -50;
+    let secondPosition = -25;
+    let thirdPosition = -50;
+    let fourthPosition = -75;
     
     let zMain = 5;
     let zSecond = -2;
     let zFirst = -1;
+    let zThird = -3;
+    let zFourth = -4;
 
     let height = 291;
     let width = 291;
 
     const targetPosition = -100; // Move left by 100px
-    const animationSpeed = 0.8; // Pixels per frame
+    const animationSpeed = 1; // Pixels per frame
     
     function animateFirst() {
         firstPosition -= animationSpeed;
@@ -30,22 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
         first.style.top = (291 -(firstHeight + firstPosition)) / 2;
         first.style.opacity = 1 - (-firstPosition / 100)
         
-        // // determine second position
-        // if (firstPosition < targetPosition / 2) {
-        //     secondPosition = firstPosition + 50;
-        //     second.classList.remove("front");
-        // } else {
-        //     secondPosition = firstPosition - 50;
-        //     second.classList.add("front");
-        // }
-        // second.style.left = secondPosition + "px";
-
-        // //determine other second properties based on its position
-        // second.style.width = width + secondPosition + "px";
-        // second.style.height = height + secondPosition + "px";
-        // second.style.top = (291 -(height + secondPosition)) / 2;
-        // second.style.opacity = 1 - (-secondPosition / 100) 
-        
         if (firstPosition > targetPosition) {
             requestAnimationFrame(animateFirst);
         } else {
@@ -53,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
             firstHeight = 291;
             firstWidth = 291;
             zFirst += 4;
-            zMain += 1;
+            zMain += 2;
             first.style.zIndex = zFirst;
             main.style.zIndex = zMain;
             requestAnimationFrame(animateFirst);
@@ -81,10 +70,67 @@ document.addEventListener("DOMContentLoaded", function() {
             secondHeight = 291;
             secondWidth = 291;
             zSecond += 4;
-            zMain += 1;
+            zMain += 2;
             second.style.zIndex = zSecond;
             main.style.zIndex = zMain;
             requestAnimationFrame(animateSecond);
+        }
+
+
+    }
+    function animateThird() {
+        thirdPosition -= animationSpeed;
+        third.style.left = thirdPosition + "px";
+
+        let thirdWidth = width;
+        let thirdHeight = height;
+
+        thirdWidth -= animationSpeed;
+        thirdHeight -= animationSpeed;
+        third.style.width = thirdWidth + thirdPosition + "px";
+        third.style.height = thirdHeight + thirdPosition + "px";
+        third.style.top = (291 -(thirdHeight + thirdPosition)) / 2;
+        third.style.opacity = 1 - (-thirdPosition / 100)
+        
+        if (thirdPosition > targetPosition) {
+            requestAnimationFrame(animateThird);
+        } else {
+            thirdPosition = 0; 
+            thirdHeight = 291;
+            thirdWidth = 291;
+            zThird += 4;
+            zMain += 2;
+            third.style.zIndex = zThird;
+            main.style.zIndex = zMain;
+            requestAnimationFrame(animateThird);
+        }
+    }
+
+    function animateFourth() {
+        fourthPosition -= animationSpeed;
+        fourth.style.left = fourthPosition + "px";
+
+        let fourthWidth = width;
+        let fourthHeight = height;
+
+        fourthWidth -= animationSpeed;
+        fourthHeight -= animationSpeed;
+        fourth.style.width = fourthWidth + fourthPosition + "px";
+        fourth.style.height = fourthHeight + fourthPosition + "px";
+        fourth.style.top = (291 -(fourthHeight + fourthPosition)) / 2;
+        fourth.style.opacity = 1 - (-fourthPosition / 100)
+        
+        if (fourthPosition > targetPosition) {
+            requestAnimationFrame(animateFourth);
+        } else {
+            fourthPosition = 0; 
+            fourthHeight = 291;
+            fourthWidth = 291;
+            zFourth += 4;
+            zMain += 2;
+            fourth.style.zIndex = zFourth;
+            main.style.zIndex = zMain;
+            requestAnimationFrame(animateFourth);
         }
 
     }
@@ -115,5 +161,140 @@ document.addEventListener("DOMContentLoaded", function() {
 
     animateFirst();
     animateSecond();
+    animateThird();
+    animateFourth();
+
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const first = document.getElementById("fifth");
+    const second = document.getElementById("sixth");
+    const third = document.getElementById("seventh");
+    const fourth = document.getElementById("eighth");
+    let firstPosition = 0;
+    let secondPosition = 25;
+    let thirdPosition = 50;
+    let fourthPosition = 75;
+    
+    let zSecond = -3;
+    let zFirst = -4;
+    let zThird = -2;
+    let zFourth = -1;
+
+    let height = 291;
+    let width = 291;
+
+    const targetPosition = -100; // Move left by 100px
+    const animationSpeed = 1; // Pixels per frame
+    
+    function animateFirst() {
+        firstPosition -= animationSpeed;
+        first.style.right = firstPosition + "px";
+
+        let firstWidth = width;
+        let firstHeight = height;
+
+        firstWidth -= animationSpeed;
+        firstHeight -= animationSpeed;
+        first.style.width = firstWidth + firstPosition + "px";
+        first.style.height = firstHeight + firstPosition + "px";
+        first.style.top = (291 -(firstHeight + firstPosition)) / 2;
+        first.style.opacity = 1 - (-firstPosition / 100)
+        
+        if (firstPosition > targetPosition) {
+            requestAnimationFrame(animateFirst);
+        } else {
+            firstPosition = 0; 
+            firstHeight = 291;
+            firstWidth = 291;
+            zFirst += 4;
+            first.style.zIndex = zFirst;
+            requestAnimationFrame(animateFirst);
+        }
+    }
+    
+    function animateSecond() {
+        secondPosition -= animationSpeed;
+        second.style.right = secondPosition + "px";
+
+        let secondHeight = height;
+        let secondWidth = width;
+
+        secondWidth -= animationSpeed;
+        secondHeight -= animationSpeed;
+        second.style.width = secondWidth + secondPosition + "px";
+        second.style.height = secondHeight + secondPosition + "px";
+        second.style.top = (291 -(secondHeight + secondPosition)) / 2;
+        second.style.opacity = 1 - (-secondPosition / 100)
+
+        if (secondPosition > targetPosition) {
+            requestAnimationFrame(animateSecond);
+        } else {
+            secondPosition = 0; 
+            secondHeight = 291;
+            secondWidth = 291;
+            zSecond += 4;
+            second.style.zIndex = zSecond;
+            requestAnimationFrame(animateSecond);
+        }
+
+
+    }
+    function animateThird() {
+        thirdPosition -= animationSpeed;
+        third.style.right = thirdPosition + "px";
+
+        let thirdWidth = width;
+        let thirdHeight = height;
+
+        thirdWidth -= animationSpeed;
+        thirdHeight -= animationSpeed;
+        third.style.width = thirdWidth + thirdPosition + "px";
+        third.style.height = thirdHeight + thirdPosition + "px";
+        third.style.top = (291 -(thirdHeight + thirdPosition)) / 2;
+        third.style.opacity = 1 - (-thirdPosition / 100)
+        
+        if (thirdPosition > targetPosition) {
+            requestAnimationFrame(animateThird);
+        } else {
+            thirdPosition = 0; 
+            thirdHeight = 291;
+            thirdWidth = 291;
+            zThird += 4;
+            third.style.zIndex = zThird;
+            requestAnimationFrame(animateThird);
+        }
+    }
+
+    function animateFourth() {
+        fourthPosition -= animationSpeed;
+        fourth.style.right = fourthPosition + "px";
+
+        let fourthWidth = width;
+        let fourthHeight = height;
+
+        fourthWidth -= animationSpeed;
+        fourthHeight -= animationSpeed;
+        fourth.style.width = fourthWidth + fourthPosition + "px";
+        fourth.style.height = fourthHeight + fourthPosition + "px";
+        fourth.style.top = (291 -(fourthHeight + fourthPosition)) / 2;
+        fourth.style.opacity = 1 - (-fourthPosition / 100)
+        
+        if (fourthPosition > targetPosition) {
+            requestAnimationFrame(animateFourth);
+        } else {
+            fourthPosition = 0; 
+            fourthHeight = 291;
+            fourthWidth = 291;
+            zFourth += 4;
+            fourth.style.zIndex = zFourth;
+            requestAnimationFrame(animateFourth);
+        }
+
+    }
+    animateFirst();
+    animateSecond();
+    animateThird();
+    animateFourth();
 
 });
