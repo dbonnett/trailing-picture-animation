@@ -12,6 +12,8 @@ img {
 }
 #main {
     z-index: 5;
+    width: 300px;
+    height: 291px;
 }
 #first {
     z-index: -1
