@@ -12,7 +12,7 @@
 img {
     display: block;
     position: absolute;
-    border-radius: 24px;
+    border-radius: 14px;
 }
 #main {
     z-index: 5;
